@@ -1,0 +1,63 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+            Student s=new();
+            s.enterStudDetails();
+            s.calculate_per();
+           string grade;
+           grade=s.studentGrade();
+           Console.WriteLine("This student has " + grade);
+            
+            
+    }
+}
+
+
+public class Student{
+    public int studentId;
+    public string studentName;
+    public int[] marks=new int[3];
+    public float percentage;
+    public void enterStudDetails()
+    {
+        Console.WriteLine("Enter StudentId: ");
+        studentId=Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter StudentName:");
+        studentName=Console.ReadLine();
+        for(int i=0;i<3;i++)
+        {
+            Console.WriteLine("Enter Marks["+i+"]");
+            marks[i]=Convert.ToInt32(Console.ReadLine());
+        }
+    }
+    public void calculate_per()
+    {
+        int sum=0;
+        foreach(int i in marks)
+        sum=sum+i;
+        percentage=(sum*100)/300;
+    
+    }
+    
+    public string studentGrade()
+    {
+        if(percentage>70)
+        return "distinction";
+        else if(percentage>60 && percentage<=70)
+        return "Grade A";
+        else if(percentage>50 && percentage<=60)
+        return "Grade B";
+        else if(percentage>40 && percentage<=50)
+        return "Grade C";
+        else 
+        return "Fail";
+    }
+    
+    
+}
